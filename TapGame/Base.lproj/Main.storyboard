@@ -33,29 +33,64 @@
                                     <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vt-kX-8Zd"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-RQ-YYe">
-                                <rect key="frame" x="47" y="384" width="321" height="397"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NHi-JK-ev9">
+                                <rect key="frame" x="59" y="413" width="306" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="N50-0c-QVZ"/>
+                                    <constraint firstAttribute="width" constant="306" id="gaW-Zb-83d"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z9w-bV-xgI">
+                                    <size key="itemSize" width="299" height="43"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="hZ4-ef-CCI" customClass="CollectionViewCell" customModule="TapGame" customModuleProvider="target">
+                                        <rect key="frame" x="3.5" y="0.0" width="299" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="299" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3i-g8-9lE">
+                                                    <rect key="frame" x="0.0" y="9" width="282" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="label" destination="G3i-g8-9lE" id="Yge-mC-32v"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="l0z-ST-Uhj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oyZ-jx-iMZ"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.58634190657692176" green="0.98181802750506575" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d2D-RQ-YYe" secondAttribute="bottom" constant="81" id="6Gf-y0-j6X"/>
-                            <constraint firstItem="d2D-RQ-YYe" firstAttribute="top" secondItem="H41-55-O2S" secondAttribute="bottom" constant="55" id="HSl-Yt-lUx"/>
+                            <constraint firstItem="NHi-JK-ev9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="5" id="Atv-mG-dR4"/>
                             <constraint firstItem="H41-55-O2S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JfY-7A-KCQ"/>
+                            <constraint firstItem="NHi-JK-ev9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="111.5" id="Sfq-WR-suW"/>
                             <constraint firstItem="H41-55-O2S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-166" id="coa-Xg-x3N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d2D-RQ-YYe" secondAttribute="trailing" constant="46" id="f1L-f8-zgf"/>
-                            <constraint firstItem="d2D-RQ-YYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="hB8-Gq-ZWA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="NHi-JK-ev9" id="tHX-BD-8sU"/>
                         <segue destination="lI5-Hi-HFc" kind="show" identifier="showGame" id="dqa-Uw-E8w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58.125" y="114.08450704225352"/>
+            <point key="canvasLocation" x="-59.420289855072468" y="113.83928571428571"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="TMy-T6-ksq">

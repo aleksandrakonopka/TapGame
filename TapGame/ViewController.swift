@@ -8,21 +8,59 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+    
+    @IBOutlet var collectionView: UICollectionView!
+    let defaults = UserDefaults.standard
+    let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return records.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.label.text = "Score: \(records[indexPath.row].score) Time: \(records[indexPath.row].time)"
+        return cell
+    }
+    
+    
+    var records = [Record(time: Date(), score: 11 ),Record(time: Date(), score: 12)]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-        
-        // Do any additional setup after loading the view.
+        loadData()
+        //saveToChosenPlist(filePath: dataFilePathRecord!, table: records)
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
-//    @objc func runTimedCode()
     @IBAction func playButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "showGame", sender: self)
     }
-    //    {
-//        print("dupa")
-//    }
-
+    func saveToChosenPlist<T: Encodable>(filePath:URL, table: T)
+    {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(table)
+            try data.write(to:filePath)
+        }
+        catch {
+            print("Error encoding item array \(error)")
+        }
+        print("Weszlo1")
+    }
+    func loadData()
+    {
+        if let data = try? Data(contentsOf: dataFilePathRecord!) {
+            let decoder = PropertyListDecoder()
+            do{
+                records = try decoder.decode([Record].self, from: data)
+                collectionView.reloadData()
+            } catch{
+                print("Error decoding item array: \(error)")
+            }
+        }
+    }
+    
 }
 
