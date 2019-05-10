@@ -9,11 +9,11 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    var messages = ["3","2","1"/*,"PLAY!"*/]
+    var messages = ["3","2","1","PLAY!"]
     var index = 0
     var score = 0
     var timeClock = 5
-    var timerPlayIndex = 0
+   
  
     @IBOutlet var timeLeftLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
@@ -29,9 +29,6 @@ class GameViewController: UIViewController {
         timeLeftLabel.isHidden = true
         scoreLabel.isHidden = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
-        //var gameTimer = Timer.scheduledTimer(timeInterval: 9, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
-        // Do any additional setup after loading the view.
-        
     }
     
     func addAlert()
@@ -60,7 +57,6 @@ class GameViewController: UIViewController {
             timerClock.invalidate()
             let oneTap = (self.view.gestureRecognizers?.filter(){$0 is UITapGestureRecognizer}.first!)!
             self.view.removeGestureRecognizer(oneTap)
-            //self.dismiss(animated: true, completion: nil)
             addAlert()
         }
         
@@ -73,25 +69,19 @@ class GameViewController: UIViewController {
     @objc func action()
     {
         index = index + 1
-        if index < 3
+        if index < 4
         {
         timerLabel.text = messages[index]
         }
         else
         {
             timer.invalidate()
-            playTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playAction), userInfo: nil, repeats: true)
+            playTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playAction), userInfo: nil, repeats: false)
         }
     }
     @objc func playAction()
     {
-        timerPlayIndex = timerPlayIndex + 1
-        if timerPlayIndex < 2
-        {
-            timerLabel.text = "PLAY!"
-        }
-        else
-        {
+
         playTimer.invalidate()
         timerLabel.isHidden = true
         hurryUpLabel.isHidden = false
@@ -100,25 +90,8 @@ class GameViewController: UIViewController {
         let oneTap = UITapGestureRecognizer(target: self, action: #selector(tappedOnce(_:)))
         self.view.addGestureRecognizer(oneTap)
         timerClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveClock), userInfo: nil, repeats: true)
-        }
 
     }
     
-   // @objc func runTimedCode()
-   // {
-//        let oneTap = (self.view.gestureRecognizers?.filter(){$0 is UITapGestureRecognizer}.first!)!
-//        self.view.removeGestureRecognizer(oneTap)
-//        self.dismiss(animated: true, completion: nil)
-   // }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
