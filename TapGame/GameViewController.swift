@@ -9,6 +9,11 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    let defaults = UserDefaults.standard
+    let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
+    var records = [Record]()
+    
     var messages = ["3","2","1","PLAY!"]
     var index = 0
     var score = 0
@@ -36,8 +41,10 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "The end", message: "Game has finished", preferredStyle: .alert )
 
         let ok = UIAlertAction(title: "OK", style: .default){ action in
-           self.dismiss(animated: true, completion: nil)
-           self.dismiss(animated: true, completion: nil)
+            self.records.append(Record(time: Date(), score: self.score))
+            self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
+            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
                 }
         
         alert.addAction(ok)
@@ -93,5 +100,16 @@ class GameViewController: UIViewController {
 
     }
     
-
+    func saveToChosenPlist<T: Encodable>(filePath:URL, table: T)
+    {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(table)
+            try data.write(to:filePath)
+        }
+        catch {
+            print("Error encoding item array \(error)")
+        }
+        print("Weszlo1")
+    }
 }
