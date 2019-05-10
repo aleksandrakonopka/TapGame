@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5t-3f-0rk">
-                                <rect key="frame" x="78" y="350.5" width="269" height="195"/>
+                                <rect key="frame" x="78" y="395" width="269" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="195" id="Nhg-Le-pLa"/>
                                     <constraint firstAttribute="width" constant="269" id="lfr-pA-hYi"/>
@@ -75,8 +75,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
+                                <rect key="frame" x="142.5" y="337" width="129" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="1Ly-4q-6Hc"/>
+                                    <constraint firstAttribute="width" constant="129" id="8XC-yK-3rQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="gFS-Yb-Kro"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="iPo-hl-vZt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time left: 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ian-sT-yus">
+                                <rect key="frame" x="146.5" y="287" width="121" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.92987316850000001" green="0.28245323900000002" blue="0.30992162229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.92987316850000001" green="0.28245323900000002" blue="0.30992162229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HURRY UP AND TAP!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-Ru-AMd">
-                                <rect key="frame" x="72" y="238" width="280" height="41"/>
+                                <rect key="frame" x="72" y="222" width="280" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="oNg-Vc-qsj"/>
                                     <constraint firstAttribute="height" constant="41" id="wcg-Dx-9jV"/>
@@ -85,31 +103,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
-                                <rect key="frame" x="143" y="292" width="129" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="8XC-yK-3rQ"/>
-                                    <constraint firstAttribute="height" constant="50" id="gFS-Yb-Kro"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.58765584230422974" green="0.97769206762313843" blue="0.98943048715591431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Ian-sT-yus" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" id="0FU-sH-lpr"/>
                             <constraint firstItem="FBM-Ru-AMd" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" constant="5" id="RkS-Zb-gle"/>
-                            <constraint firstItem="FBM-Ru-AMd" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-189.5" id="bWC-nD-bFM"/>
+                            <constraint firstItem="FBM-Ru-AMd" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-205.5" id="bWC-nD-bFM"/>
+                            <constraint firstItem="Ian-sT-yus" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-146" id="giQ-jE-x6G"/>
                             <constraint firstItem="L5t-3f-0rk" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" constant="5.5" id="lcY-mN-uYh"/>
-                            <constraint firstItem="L5t-3f-0rk" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" id="mTq-88-Y2b"/>
+                            <constraint firstItem="L5t-3f-0rk" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="44.5" id="mTq-88-Y2b"/>
                             <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" id="siP-cx-HYv"/>
-                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-131" id="t80-Gr-0Dr"/>
+                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-86" id="t80-Gr-0Dr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PBW-2g-P0O"/>
                     </view>
                     <connections>
                         <outlet property="hurryUpLabel" destination="FBM-Ru-AMd" id="W9Q-vf-Wuj"/>
                         <outlet property="scoreLabel" destination="aDW-V3-Dn9" id="AJl-3m-4IH"/>
+                        <outlet property="timeLeftLabel" destination="Ian-sT-yus" id="HUm-zc-8SG"/>
                         <outlet property="timerLabel" destination="L5t-3f-0rk" id="a6u-dw-Jpd"/>
                     </connections>
                 </viewController>
