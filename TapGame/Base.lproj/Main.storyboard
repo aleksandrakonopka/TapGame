@@ -85,6 +85,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
+                                <rect key="frame" x="143" y="292" width="129" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="8XC-yK-3rQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="gFS-Yb-Kro"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.58765584230422974" green="0.97769206762313843" blue="0.98943048715591431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -92,11 +102,14 @@
                             <constraint firstItem="FBM-Ru-AMd" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-189.5" id="bWC-nD-bFM"/>
                             <constraint firstItem="L5t-3f-0rk" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" constant="5.5" id="lcY-mN-uYh"/>
                             <constraint firstItem="L5t-3f-0rk" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" id="mTq-88-Y2b"/>
+                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" id="siP-cx-HYv"/>
+                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-131" id="t80-Gr-0Dr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PBW-2g-P0O"/>
                     </view>
                     <connections>
                         <outlet property="hurryUpLabel" destination="FBM-Ru-AMd" id="W9Q-vf-Wuj"/>
+                        <outlet property="scoreLabel" destination="aDW-V3-Dn9" id="AJl-3m-4IH"/>
                         <outlet property="timerLabel" destination="L5t-3f-0rk" id="a6u-dw-Jpd"/>
                     </connections>
                 </viewController>

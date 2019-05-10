@@ -11,16 +11,25 @@ import UIKit
 class GameViewController: UIViewController {
     var messages = ["3","2","1","0","PLAY!"]
     var index = 0
+    var score = 0
+    @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var hurryUpLabel: UILabel!
     var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       hurryUpLabel.isHidden = true
+        hurryUpLabel.isHidden = true
+        scoreLabel.isHidden = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
-        var gameTimer = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        var gameTimer = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
         // Do any additional setup after loading the view.
         
+    }
+    @objc func tappedOnce(_ tap : UIGestureRecognizer)
+    {
+     score = score + 1
+     scoreLabel.text = "Score: \(score)"
     }
     @objc func action()
     {
@@ -34,10 +43,15 @@ class GameViewController: UIViewController {
             timer.invalidate()
             timerLabel.isHidden = true
             hurryUpLabel.isHidden = false
+            scoreLabel.isHidden = false
+            let oneTap = UITapGestureRecognizer(target: self, action: #selector(tappedOnce(_:)))
+            self.view.addGestureRecognizer(oneTap)
         }
     }
     @objc func runTimedCode()
     {
+        let oneTap = (self.view.gestureRecognizers?.filter(){$0 is UITapGestureRecognizer}.first!)!
+        self.view.removeGestureRecognizer(oneTap)
         self.dismiss(animated: true, completion: nil)
     }
 
