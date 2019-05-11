@@ -125,25 +125,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5t-3f-0rk">
-                                <rect key="frame" x="78" y="395" width="269" height="195"/>
+                                <rect key="frame" x="78" y="351" width="269" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="195" id="Nhg-Le-pLa"/>
                                     <constraint firstAttribute="width" constant="269" id="lfr-pA-hYi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="73"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
-                                <rect key="frame" x="142.5" y="337" width="129" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="1Ly-4q-6Hc"/>
-                                    <constraint firstAttribute="width" constant="129" id="8XC-yK-3rQ"/>
-                                    <constraint firstAttribute="height" constant="50" id="gFS-Yb-Kro"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="iPo-hl-vZt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.83521419763565063" green="0.83535194396972656" blue="0.83518487215042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time left: 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ian-sT-yus">
@@ -162,6 +150,18 @@
                                 <color key="textColor" red="0.39257729053497314" green="0.82060825824737549" blue="0.37349557876586914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
+                                <rect key="frame" x="96" y="397" width="223" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="1Ly-4q-6Hc"/>
+                                    <constraint firstAttribute="width" constant="223" id="8XC-yK-3rQ"/>
+                                    <constraint firstAttribute="height" constant="102" id="gFS-Yb-Kro"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="iPo-hl-vZt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.83521419763565063" green="0.83535194396972656" blue="0.83518487215042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18821346759796143" green="0.18825110793113708" blue="0.18820545077323914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -170,9 +170,9 @@
                             <constraint firstItem="FBM-Ru-AMd" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-205.5" id="bWC-nD-bFM"/>
                             <constraint firstItem="Ian-sT-yus" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-146" id="giQ-jE-x6G"/>
                             <constraint firstItem="L5t-3f-0rk" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" constant="5.5" id="lcY-mN-uYh"/>
-                            <constraint firstItem="L5t-3f-0rk" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="44.5" id="mTq-88-Y2b"/>
+                            <constraint firstItem="L5t-3f-0rk" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="0.5" id="mTq-88-Y2b"/>
                             <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerX" secondItem="YAD-Gs-JDa" secondAttribute="centerX" id="siP-cx-HYv"/>
-                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="-86" id="t80-Gr-0Dr"/>
+                            <constraint firstItem="aDW-V3-Dn9" firstAttribute="centerY" secondItem="YAD-Gs-JDa" secondAttribute="centerY" constant="0.5" id="t80-Gr-0Dr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PBW-2g-P0O"/>
                     </view>

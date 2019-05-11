@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     var index = 0
     var score = 0
     var timeClock = 5
-   
+    var fontSize = 21
  
     @IBOutlet var timeLeftLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
@@ -101,7 +101,9 @@ class GameViewController: UIViewController {
     @objc func tappedOnce(_ tap : UIGestureRecognizer)
     {
      score = score + 1
-     scoreLabel.text = "Score: \(score)"
+     scoreLabel.text = "\(score)"
+     fontSize = fontSize + 1
+        scoreLabel.font = scoreLabel.font.withSize(CGFloat(fontSize))
     }
     @objc func action()
     {
