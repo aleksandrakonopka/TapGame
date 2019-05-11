@@ -43,36 +43,41 @@ class GameViewController: UIViewController {
     
     func addAlert()
     {
-        let alert = UIAlertController(title: "The end", message: "Game has finished", preferredStyle: .alert )
-
+        var placeInRankingIndex = 5
+        let alert = UIAlertController(title: "Good job", message: "Your score is : \(score)", preferredStyle: .alert )
+        for recordScore in self.records
+        {
+            if self.score > recordScore.score
+            {
+                placeInRankingIndex = placeInRankingIndex - 1
+                
+            }
+        }
+        
         let ok = UIAlertAction(title: "OK", style: .default){ action in
             
-           // self.records.append(Record(time: Date(), score: self.score))
-            
-            var placeInRankingIndex = 5 // 0,1,2,3,4
-            
-            for recordScore in self.records
-            {
-                if self.score > recordScore.score
-                {
-                    placeInRankingIndex = placeInRankingIndex - 1
-                    
-                }
-            }
             if placeInRankingIndex < 5 // jestes na liscie wyników
             {
                 self.records.insert(Record(time: Date(), score: self.score), at: placeInRankingIndex)
                 self.records.removeLast()
                 self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
             }
-            
-            //self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
             self.delegate?.dataReceived(data: self.records)
             self.dismiss(animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
                 }
-        
+
         alert.addAction(ok)
+        if score == 0
+        {
+            alert.title = "Oh no! You got zero points!"
+            alert.message = "You were supposed to tap on the screen! Try again!"
+        }
+        if placeInRankingIndex < 5
+        {
+            alert.title = "New high score!"
+            alert.message = "Your score \(score)! Position in ranking :\(placeInRankingIndex+1) "
+        }
         self.present(alert,animated: true, completion: nil)
     }
 
