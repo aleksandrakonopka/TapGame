@@ -23,6 +23,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         if records[indexPath.row].score > 0
         {
         cell.label.text = "Score: \(records[indexPath.row].score) Time: \(records[indexPath.row].time)"
+        cell.label.textColor = .gray
         }
         else
         {
