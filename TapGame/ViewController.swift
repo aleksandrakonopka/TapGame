@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CanReceive {
     
     @IBOutlet var collectionView: UICollectionView!
     let defaults = UserDefaults.standard
@@ -18,8 +18,17 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        if records[indexPath.row].score > 0
+        {
         cell.label.text = "Score: \(records[indexPath.row].score) Time: \(records[indexPath.row].time)"
+        }
+        else
+        {
+          cell.label.text = ""
+        }
+        
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,36 +36,45 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         {
             let secondVC = segue.destination as! GameViewController
             secondVC.records = records
+            secondVC.delegate=self
         }
     }
-    
-    var records = [Record(time: Date(), score: 11 ),Record(time: Date(), score: 12)]
+    func dataReceived(data: [Record]) {
+        records  =  data
+        collectionView.reloadData()
+    }
+    var records = [Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 )]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadData()
-        //saveToChosenPlist(filePath: dataFilePathRecord!, table: records)
+        loadData()
+//        if records.count < 5
+//        {
+//        records = [Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 )]
+//        saveToChosenPlist(filePath: dataFilePathRecord!, table: records)
+//        //loadData()
+//        }
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
     override func viewDidAppear(_ animated: Bool) {
-        loadData()
+        //loadData()
     }
     @IBAction func playButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "showGame", sender: self)
     }
-//    func saveToChosenPlist<T: Encodable>(filePath:URL, table: T)
-//    {
-//        let encoder = PropertyListEncoder()
-//        do {
-//            let data = try encoder.encode(table)
-//            try data.write(to:filePath)
-//        }
-//        catch {
-//            print("Error encoding item array \(error)")
-//        }
-//        print("Weszlo1")
-//    }
+    func saveToChosenPlist<T: Encodable>(filePath:URL, table: T)
+    {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(table)
+            try data.write(to:filePath)
+        }
+        catch {
+            print("Error encoding item array \(error)")
+        }
+        print("Weszlo1")
+    }
     func loadData()
     {
         if let data = try? Data(contentsOf: dataFilePathRecord!) {

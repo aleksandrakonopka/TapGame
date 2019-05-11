@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol CanReceive
+{
+    func dataReceived(data: [Record])
+}
+
 class GameViewController: UIViewController {
-    
+    var delegate : CanReceive?
     let defaults = UserDefaults.standard
     let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
     var records = [Record]()
@@ -41,8 +46,28 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "The end", message: "Game has finished", preferredStyle: .alert )
 
         let ok = UIAlertAction(title: "OK", style: .default){ action in
-            self.records.append(Record(time: Date(), score: self.score))
-            self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
+            
+           // self.records.append(Record(time: Date(), score: self.score))
+            
+            var placeInRankingIndex = 5 // 0,1,2,3,4
+            
+            for recordScore in self.records
+            {
+                if self.score > recordScore.score
+                {
+                    placeInRankingIndex = placeInRankingIndex - 1
+                    
+                }
+            }
+            if placeInRankingIndex < 5 // jestes na liscie wyników
+            {
+                self.records.insert(Record(time: Date(), score: self.score), at: placeInRankingIndex)
+                self.records.removeLast()
+                self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
+            }
+            
+            //self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
+            self.delegate?.dataReceived(data: self.records)
             self.dismiss(animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
                 }
