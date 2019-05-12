@@ -22,7 +22,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         if records[indexPath.row].score > 0
         {
-        cell.label.text = "Score: \(records[indexPath.row].score) Time: \(records[indexPath.row].time)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let dateFormated = dateFormatter.string(from:records[indexPath.row].time)
+        cell.label.text = "Score: \(records[indexPath.row].score) Time: \(dateFormated)"
         cell.label.textColor = .gray
         }
         else

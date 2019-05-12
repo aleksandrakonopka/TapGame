@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
     let defaults = UserDefaults.standard
     let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
     var records = [Record]()
-    
+    var dateBeginning = Date() // rozpoczęcie gry = kliknięcie Play
     var messages = ["3","2","1","PLAY!"]
     var index = 0
     var score = 0
@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
             
             if placeInRankingIndex < 5 // jestes na liscie wyników
             {
-                self.records.insert(Record(time: Date(), score: self.score), at: placeInRankingIndex)
+                self.records.insert(Record(time: self.dateBeginning, score: self.score), at: placeInRankingIndex)
                 self.records.removeLast()
                 self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
             }
