@@ -18,21 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H41-55-O2S">
-                                <rect key="frame" x="118.5" y="235" width="177" height="94"/>
-                                <color key="backgroundColor" red="0.39182361960411072" green="0.82058697938919067" blue="0.37346845865249634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="94" id="Aos-de-rgf"/>
-                                    <constraint firstAttribute="width" constant="177" id="S5X-kk-FmP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <state key="normal" title="PLAY">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vt-kX-8Zd"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NHi-JK-ev9">
                                 <rect key="frame" x="54" y="450" width="306" height="279"/>
                                 <color key="backgroundColor" red="0.18821346759796143" green="0.18825110793113708" blue="0.18820545077323914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DaftTap Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkN-PD-Ysw">
-                                <rect key="frame" x="76.5" y="162" width="261" height="49"/>
+                                <rect key="frame" x="76.5" y="178" width="261" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="XDZ-Y9-8L4"/>
                                     <constraint firstAttribute="width" constant="261" id="w8w-Vy-T4a"/>
@@ -93,6 +78,21 @@
                                 <color key="textColor" red="0.38746964931488037" green="0.91240531206130981" blue="0.9866829514503479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H41-55-O2S">
+                                <rect key="frame" x="118.5" y="255" width="177" height="94"/>
+                                <color key="backgroundColor" red="0.39182361960411072" green="0.82058697938919067" blue="0.37346845865249634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="Aos-de-rgf"/>
+                                    <constraint firstAttribute="width" constant="177" id="S5X-kk-FmP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vt-kX-8Zd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18821346759796143" green="0.18825110793113708" blue="0.18820545077323914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -100,8 +100,8 @@
                             <constraint firstItem="NHi-JK-ev9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Atv-mG-dR4"/>
                             <constraint firstItem="H41-55-O2S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JfY-7A-KCQ"/>
                             <constraint firstItem="NHi-JK-ev9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="141.5" id="Sfq-WR-suW"/>
-                            <constraint firstItem="H41-55-O2S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-166" id="coa-Xg-x3N"/>
-                            <constraint firstItem="lkN-PD-Ysw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-261.5" id="dZ1-Y3-tic"/>
+                            <constraint firstItem="H41-55-O2S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-146" id="coa-Xg-x3N"/>
+                            <constraint firstItem="lkN-PD-Ysw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-245.5" id="dZ1-Y3-tic"/>
                             <constraint firstItem="lkN-PD-Ysw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kmT-Z5-eUB"/>
                             <constraint firstItem="hBE-JY-gju" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yxl-ym-S0Z"/>
                         </constraints>
@@ -151,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDW-V3-Dn9">
-                                <rect key="frame" x="96" y="397" width="223" height="102"/>
+                                <rect key="frame" x="95.5" y="397.5" width="223" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="1Ly-4q-6Hc"/>
                                     <constraint firstAttribute="width" constant="223" id="8XC-yK-3rQ"/>
