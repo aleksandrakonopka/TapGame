@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
     {
         var placeInRankingIndex = 5
         let alert = UIAlertController(title: "Good job", message: "Your score is : \(score)", preferredStyle: .alert )
-        for recordScore in self.records
+        for recordScore in self.records // jeżeli ma sie score wiekszy niz dana liczba osob z rankingu to jest sie na 5 - dana liczba osób + 1 miejscu
         {
             if self.score > recordScore.score
             {
@@ -50,9 +50,7 @@ class GameViewController: UIViewController {
                 
             }
         }
-        
         let ok = UIAlertAction(title: "OK", style: .default){ action in
-            
             if placeInRankingIndex < 5 // jestes na liscie wyników
             {
                 self.records.insert(Record(time: self.dateBeginning, score: self.score), at: placeInRankingIndex)
@@ -62,8 +60,7 @@ class GameViewController: UIViewController {
             self.delegate?.dataReceived(data: self.records)
             self.dismiss(animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
-                }
-
+        }
         alert.addAction(ok)
         if score == 0
         {
@@ -77,8 +74,6 @@ class GameViewController: UIViewController {
         }
         self.present(alert,animated: true, completion: nil)
     }
-
-
     @objc func moveClock()
     {
         timeClock = timeClock - 1
@@ -93,21 +88,20 @@ class GameViewController: UIViewController {
             self.view.removeGestureRecognizer(oneTap)
             addAlert()
         }
-        
     }
     @objc func tappedOnce(_ tap : UIGestureRecognizer)
     {
-     score = score + 1
-     scoreLabel.text = "\(score)"
-     fontSize = fontSize + 1
-        scoreLabel.font = scoreLabel.font.withSize(CGFloat(fontSize))
+      score = score + 1
+      scoreLabel.text = "\(score)"
+      fontSize = fontSize + 1
+      scoreLabel.font = scoreLabel.font.withSize(CGFloat(fontSize))
     }
     @objc func action()
     {
         index = index + 1
         if index < 4
         {
-        timerLabel.text = messages[index]
+            timerLabel.text = messages[index]
         }
         else
         {
@@ -126,7 +120,6 @@ class GameViewController: UIViewController {
         let oneTap = UITapGestureRecognizer(target: self, action: #selector(tappedOnce(_:)))
         self.view.addGestureRecognizer(oneTap)
         timerClock = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveClock), userInfo: nil, repeats: true)
-
     }
     
 }

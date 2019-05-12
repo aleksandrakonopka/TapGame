@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController/*,UICollectionViewDataSource,UICollectionViewDelegate*/,Receiving {
+class ViewController: UIViewController {
     var saveProvider: SaveProviding?
     @IBOutlet var collectionView: UICollectionView!
     let defaults = UserDefaults.standard
     let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
-      var records = [Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 )]
+    var records = [Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 ),Record(time: Date(), score: 0),Record(time: Date(), score: 0 )]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController/*,UICollectionViewDataSource,UICollection
             records = saveProvider!.loadFromChosenPlist()
         }
         collectionView.reloadData()
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,12 +34,6 @@ class ViewController: UIViewController/*,UICollectionViewDataSource,UICollection
             secondVC.delegate=self
         }
     }
-    
-    func dataReceived(data: [Record]) {
-        records  =  data
-        collectionView.reloadData()
-    }
-    
     @IBAction func playButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "showGame", sender: self)
     }
@@ -68,5 +62,12 @@ extension ViewController : UICollectionViewDataSource,UICollectionViewDelegate
         }
         
         return cell
+    }
+}
+extension ViewController : Receiving
+{
+    func dataReceived(data: [Record]) {
+        records  =  data
+        collectionView.reloadData()
     }
 }
