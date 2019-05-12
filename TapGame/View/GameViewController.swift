@@ -8,13 +8,10 @@
 
 import UIKit
 
-protocol CanReceive
-{
-    func dataReceived(data: [Record])
-}
-
 class GameViewController: UIViewController {
-    var delegate : CanReceive?
+    
+    var saveProvider: SaveProviding?
+    var delegate : Receiving?
     let defaults = UserDefaults.standard
     let dataFilePathRecord = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records.plist")
     var records = [Record]()
@@ -24,7 +21,6 @@ class GameViewController: UIViewController {
     var score = 0
     var timeClock = 5
     var fontSize = 21
- 
     @IBOutlet var timeLeftLabel: UILabel!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
@@ -35,6 +31,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveProvider = SaveProvider()
         hurryUpLabel.isHidden = true
         timeLeftLabel.isHidden = true
         scoreLabel.isHidden = true
@@ -60,7 +57,7 @@ class GameViewController: UIViewController {
             {
                 self.records.insert(Record(time: self.dateBeginning, score: self.score), at: placeInRankingIndex)
                 self.records.removeLast()
-                self.saveToChosenPlist(filePath: self.dataFilePathRecord!, table: self.records)
+                self.saveProvider?.saveToChosenPlist(table: self.records)
             }
             self.delegate?.dataReceived(data: self.records)
             self.dismiss(animated: true, completion: nil)
@@ -132,16 +129,4 @@ class GameViewController: UIViewController {
 
     }
     
-    func saveToChosenPlist<T: Encodable>(filePath:URL, table: T)
-    {
-        let encoder = PropertyListEncoder()
-        do {
-            let data = try encoder.encode(table)
-            try data.write(to:filePath)
-        }
-        catch {
-            print("Error encoding item array \(error)")
-        }
-        print("Weszlo1")
-    }
 }

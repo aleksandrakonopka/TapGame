@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6F25DE832286154E004E0A32 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25DE822286154E004E0A32 /* CollectionViewCell.swift */; };
+		6F7460702288196C008395F8 /* SaveProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74606F2288196C008395F8 /* SaveProvider.swift */; };
+		6F74607222881981008395F8 /* SaveProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74607122881981008395F8 /* SaveProviding.swift */; };
+		6F74607A22882C60008395F8 /* Receiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74607922882C60008395F8 /* Receiving.swift */; };
 		6F823F552284BD2B00304844 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F823F542284BD2B00304844 /* AppDelegate.swift */; };
 		6F823F572284BD2B00304844 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F823F562284BD2B00304844 /* ViewController.swift */; };
 		6F823F5A2284BD2B00304844 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F823F582284BD2B00304844 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		6F25DE822286154E004E0A32 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		6F74606F2288196C008395F8 /* SaveProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProvider.swift; sourceTree = "<group>"; };
+		6F74607122881981008395F8 /* SaveProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProviding.swift; sourceTree = "<group>"; };
+		6F74607922882C60008395F8 /* Receiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receiving.swift; sourceTree = "<group>"; };
 		6F823F512284BD2B00304844 /* TapGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F823F542284BD2B00304844 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F823F562284BD2B00304844 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +49,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F74606622881635008395F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F823F562284BD2B00304844 /* ViewController.swift */,
+				6F823F692284C20700304844 /* GameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F7460672288164E008395F8 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6F823F542284BD2B00304844 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6F74606822881666008395F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FEED67222860F2100264BD2 /* Record.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F7460692288168D008395F8 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				6F25DE822286154E004E0A32 /* CollectionViewCell.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		6F74606A228816AB008395F8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6F823F582284BD2B00304844 /* Main.storyboard */,
+				6F823F602284BD3800304844 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		6F823F482284BD2B00304844 = {
 			isa = PBXGroup;
 			children = (
@@ -62,18 +110,35 @@
 		6F823F532284BD2B00304844 /* TapGame */ = {
 			isa = PBXGroup;
 			children = (
-				6F823F542284BD2B00304844 /* AppDelegate.swift */,
-				6F823F562284BD2B00304844 /* ViewController.swift */,
-				6FEED67222860F2100264BD2 /* Record.swift */,
-				6F823F582284BD2B00304844 /* Main.storyboard */,
+				6FCBCF4522882E2600BEECCB /* Others */,
+				6FCBCF4422882E0A00BEECCB /* Protocols */,
+				6F74606A228816AB008395F8 /* Storyboard */,
+				6F7460692288168D008395F8 /* Collection */,
+				6F74606822881666008395F8 /* Model */,
+				6F7460672288164E008395F8 /* AppDelegate */,
+				6F74606622881635008395F8 /* View */,
 				6F823F5E2284BD3800304844 /* Assets.xcassets */,
-				6F823F602284BD3800304844 /* LaunchScreen.storyboard */,
 				6F823F632284BD3800304844 /* Info.plist */,
 				6F823F5B2284BD2B00304844 /* TapGame.xcdatamodeld */,
-				6F823F692284C20700304844 /* GameViewController.swift */,
-				6F25DE822286154E004E0A32 /* CollectionViewCell.swift */,
 			);
 			path = TapGame;
+			sourceTree = "<group>";
+		};
+		6FCBCF4422882E0A00BEECCB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6F74607122881981008395F8 /* SaveProviding.swift */,
+				6F74607922882C60008395F8 /* Receiving.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6FCBCF4522882E2600BEECCB /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				6F74606F2288196C008395F8 /* SaveProvider.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F823F6A2284C20700304844 /* GameViewController.swift in Sources */,
+				6F7460702288196C008395F8 /* SaveProvider.swift in Sources */,
 				6F823F572284BD2B00304844 /* ViewController.swift in Sources */,
+				6F74607222881981008395F8 /* SaveProviding.swift in Sources */,
+				6F74607A22882C60008395F8 /* Receiving.swift in Sources */,
 				6F25DE832286154E004E0A32 /* CollectionViewCell.swift in Sources */,
 				6FEED67322860F2100264BD2 /* Record.swift in Sources */,
 				6F823F552284BD2B00304844 /* AppDelegate.swift in Sources */,
