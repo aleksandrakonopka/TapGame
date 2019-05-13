@@ -77,13 +77,14 @@ class GameViewController: UIViewController {
     @objc func moveClock()
     {
         timeClock = timeClock - 1
-        if timeClock > -1
+        if timeClock > 0
         {
             timeLeftLabel.text = "Time left: \(timeClock)"
         }
         else
         {
             timerClock.invalidate()
+            timeLeftLabel.text = "Time left: 0"
             let oneTap = (self.view.gestureRecognizers?.filter(){$0 is UITapGestureRecognizer}.first!)!
             self.view.removeGestureRecognizer(oneTap)
             addAlert()
